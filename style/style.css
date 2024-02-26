@@ -110,7 +110,8 @@ input[type=submit] {
 
 input[type=submit]:hover {
     transition: .5s;
-    background-color: var(--color-sub);
+    font-size: 1em;
+    background: linear-gradient(to right, var(--color-sub2), var(--color-sub2));
 }
 
 input.res {
@@ -119,6 +120,6 @@ input.res {
     border-radius: 0px 20px 20px 0px;
     z-index: 1;
     text-align: center;
-    height: 30px;
+    height: 32px;
     color: white;
 }
