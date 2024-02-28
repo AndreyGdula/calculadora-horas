@@ -106,6 +106,7 @@ input[type=submit] {
     font-weight: bolder;
     height: 34px;
     z-index: 2;
+    box-sizing: border-box;
 }
 
 input[type=submit]:hover {
