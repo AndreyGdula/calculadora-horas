@@ -1,3 +1,5 @@
+var list = []
+
 function calcular() {
     let start = String(document.querySelector("input#time-start").value)
     let final = String(document.querySelector("input#time-final").value)
@@ -22,6 +24,8 @@ function calcular() {
         resultado.style.fontWeight = "bolder"
         resultado.style.fontSize = "1em"
 
+        list.push(`${hora}:${min}`)
         console.log(`resultado: ${hora.toString().padStart(2, "0")}:${min.toString().padStart(2, "0")}`)
+        console.log(list)
     }
 }
