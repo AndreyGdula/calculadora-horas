@@ -17,8 +17,10 @@
             <input type="time" name="time-start" id="time-start">
             <label for="time-final">Hora final:</label>
             <input type="time" name="time-final" id="time-final">
-            <input type="submit" value="CALCULAR" onclick="calcular()">
-            <input type="text" class="res" value="resultado" disabled>
+            <button class="button-submit" onclick="calcular()">
+                <span class="span-button" class="submit">CALCULAR</span>
+                <span class="span-button" id="res">resultado</span>
+            </button>
         </section>
         <hr>
     </main>

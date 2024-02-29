@@ -49,6 +49,10 @@ section {
     align-items: center;
 }
 
+.button-submit {
+    grid-column: span 2;
+}
+
 footer {
     background-color: white;
     margin-top: 40px;
@@ -97,32 +101,21 @@ input[type=time] {
     width: 100%;
 }
 
-input[type=submit] {
-    width: 130%;
+.button-submit {
     border: 1px solid var(--color-sub);
     border-right: transparent;
-    border-radius: 20px 0px 0px 20px;
+    border-radius: 20px;
     background: linear-gradient(to right, var(--color-main), var(--color-sub2));
     color: white;
     font-weight: bolder;
     height: 34px;
-    z-index: 2;
-    box-sizing: border-box;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
 }
 
-input[type=submit]:hover {
+.button-submit:hover {
     transition: .5s;
-    font-size: 1em;
-    background: linear-gradient(to right, var(--color-sub2), var(--color-sub2));
-}
-
-input.res {
-    background-color: var(--color-sub2);
-    border: 1px solid var(--color-sub);
-    border-radius: 0px 20px 20px 0px;
-    z-index: 1;
-    text-align: center;
-    height: 32px;
-    color: white;
-    box-sizing: border-box;
+    background: linear-gradient(to left, var(--color-main), var(--color-sub2));
 }
