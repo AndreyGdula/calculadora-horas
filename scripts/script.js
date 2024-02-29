@@ -30,35 +30,34 @@ function calcular() {
     button.style.gridTemplateColumns = "1fr 1fr"
 
     if (horaInicial > horaFinal || horaInicial >= horaFinal && minutoInicial >= minutoFinal) {
-        alert("{ERRO] O valor inicial inserido é maior ou igual ao final!")
+        var resMin = (((24 - horaInicial) * 60 + (minutoFinal - minutoInicial)) / 60) + horaFinal
     } else {
         var resMin = ((horaFinal - horaInicial) * 60 + (minutoFinal - minutoInicial)) / 60
-
-        var hora = Math.floor(resMin)
-        var min = Math.floor((resMin - hora) * 60)
-
-        resultado.style.display = "block"
-        resultado.innerHTML = `${hora.toString().padStart(2, "0")}:${min.toString().padStart(2, "0")}`
-        resultado.style.fontWeight = "bolder"
-        resultado.style.fontSize = "1.5em"
-
-        btnMedia.style.display = "grid"
-
-        console.log(`resultado: ${hora.toString().padStart(2, "0")}:${min.toString().padStart(2, "0")}`)
-
-        btnMedia.addEventListener("click", function() {
-            btnMedia.style.gridTemplateColumns = "1fr 1fr"
-            resulMedia.style.display = "block"
-            resulMedia.style.fontWeight = "bolder"
-            resulMedia.style.fontSize = "1.5em"
-            spanMedia.innerHTML = "MÉDIA"
-
-            list.push(resMin)
-            media = list.reduce((a, b) => a + b, 0) / list.length
-            let horaMedia = Math.floor(media)
-            let minMedia = Math.floor((media - horaMedia) * 60)
-            resulMedia.innerHTML = `${horaMedia.toString().padStart(2, "0")}:${minMedia.toString().padStart(2, "0")}`
-            console.log(`Média: ${horaMedia}:${minMedia}`)
-        })
     }
+    var hora = Math.floor(resMin)
+    var min = Math.floor((resMin - hora) * 60)
+
+    resultado.style.display = "block"
+    resultado.innerHTML = `${hora.toString().padStart(2, "0")}:${min.toString().padStart(2, "0")}`
+    resultado.style.fontWeight = "bolder"
+    resultado.style.fontSize = "1.5em"
+
+    btnMedia.style.display = "grid"
+
+    console.log(`resultado: ${hora.toString().padStart(2, "0")}:${min.toString().padStart(2, "0")}`)
+
+    btnMedia.addEventListener("click", function() {
+        btnMedia.style.gridTemplateColumns = "1fr 1fr"
+        resulMedia.style.display = "block"
+        resulMedia.style.fontWeight = "bolder"
+        resulMedia.style.fontSize = "1.5em"
+        spanMedia.innerHTML = "MÉDIA"
+
+        list.push(resMin)
+        media = list.reduce((a, b) => a + b, 0) / list.length
+        let horaMedia = Math.floor(media)
+        let minMedia = Math.floor((media - horaMedia) * 60)
+        resulMedia.innerHTML = `${horaMedia.toString().padStart(2, "0")}:${minMedia.toString().padStart(2, "0")}`
+        console.log(`Média: ${horaMedia}:${minMedia}`)
+    })
 }
