@@ -1,4 +1,5 @@
 var list = []
+var media = 0
 
 function calcular() {
     let start = String(document.querySelector("input#time-start").value)
@@ -24,7 +25,10 @@ function calcular() {
         resultado.style.fontWeight = "bolder"
         resultado.style.fontSize = "1.5em"
 
-        list.push(`${hora}:${min}`)
+        list.push(resMin)
         console.log(`resultado: ${hora.toString().padStart(2, "0")}:${min.toString().padStart(2, "0")}`)
+
+        media = list.reduce((a, b) => a + b, 0) / list.length
+        console.log(`Mediana: ${media}`)
     }
 }
