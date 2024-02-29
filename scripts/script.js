@@ -1,17 +1,24 @@
 var list = []
 var media = 0
 
+var btnMedia = document.querySelector("button#btn-media")
+var resulMedia = document.createElement("span")
+resulMedia.className = "span-media"
+resulMedia.id = "res-media"
+resulMedia.style.display = "none"
+btnMedia.appendChild(resulMedia)
+
+var button = document.querySelector("button#b1")
+var resultado = document.createElement("span")
+resultado.className = "span-button"
+resultado.Id = "res"
+resultado.style.display = "none"
+button.appendChild(resultado)
+
 function calcular() {
     let start = String(document.querySelector("input#time-start").value)
     let final = String(document.querySelector("input#time-final").value)
-    let button = document.querySelector("button#b1")
-    let btnMedia = document.querySelector("button#btn-media")
-
-    let resultado = document.createElement("span")
-    button.style.gridTemplateColumns = "1fr 1fr"
-    resultado.className = "span-button"
-    resultado.Id = "res"
-    button.appendChild(resultado)
+    let spanMedia = document.querySelector("span#media")
 
     const [horaInicialS, minutoInicialS] = start.split(":")
     const [horaFinalS, minutoFinalS] = final.split(":")
@@ -20,26 +27,38 @@ function calcular() {
     let horaFinal = Number(horaFinalS)
     let minutoFinal = Number(minutoFinalS)
 
+    button.style.gridTemplateColumns = "1fr 1fr"
+
     if (horaInicial > horaFinal || horaInicial >= horaFinal && minutoInicial >= minutoFinal) {
         alert("{ERRO] O valor inicial inserido é maior ou igual ao final!")
     } else {
         var resMin = ((horaFinal - horaInicial) * 60 + (minutoFinal - minutoInicial)) / 60
 
         var hora = Math.floor(resMin)
-        var min = Math.ceil((resMin - hora) * 60)
+        var min = Math.floor((resMin - hora) * 60)
 
+        resultado.style.display = "block"
         resultado.innerHTML = `${hora.toString().padStart(2, "0")}:${min.toString().padStart(2, "0")}`
         resultado.style.fontWeight = "bolder"
         resultado.style.fontSize = "1.5em"
 
-        btnMedia.style.display = "block"
+        btnMedia.style.display = "grid"
 
         console.log(`resultado: ${hora.toString().padStart(2, "0")}:${min.toString().padStart(2, "0")}`)
 
         btnMedia.addEventListener("click", function() {
+            btnMedia.style.gridTemplateColumns = "1fr 1fr"
+            resulMedia.style.display = "block"
+            resulMedia.style.fontWeight = "bolder"
+            resulMedia.style.fontSize = "1.5em"
+            spanMedia.innerHTML = "MÉDIA"
+
             list.push(resMin)
             media = list.reduce((a, b) => a + b, 0) / list.length
-            console.log(`Média: ${media}`)
+            let horaMedia = Math.floor(media)
+            let minMedia = Math.floor((media - horaMedia) * 60)
+            resulMedia.innerHTML = `${horaMedia.toString().padStart(2, "0")}:${minMedia.toString().padStart(2, "0")}`
+            console.log(`Média: ${horaMedia}:${minMedia}`)
         })
     }
 }
