@@ -12,15 +12,15 @@
         <h1>CALCULADORA DE HORAS</h1>
     </header>
     <main>
-        <section>
+        <section id="s1">
             <label for="time-start">Hora inicial:</label>
             <input type="time" name="time-start" id="time-start">
             <label for="time-final">Hora final:</label>
             <input type="time" name="time-final" id="time-final">
-            <button class="button-submit" onclick="calcular()">
+            <button class="button-submit" id="b1" onclick="calcular()">
                 <span class="span-button" class="submit">CALCULAR</span>
-                <span class="span-button" id="res">resultado</span>
             </button>
+            <button class="button-submit" id="btn-media">ADICIONAR A MÉDIA</button>
         </section>
         <hr>
     </main>

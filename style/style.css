@@ -111,11 +111,15 @@ input[type=time] {
     height: 34px;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     place-items: center;
 }
 
 .button-submit:hover {
     transition: .5s;
     background: linear-gradient(to left, var(--color-main), var(--color-sub2));
+}
+
+button#btn-media {
+    display: none;
 }
