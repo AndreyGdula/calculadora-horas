@@ -94,7 +94,7 @@ input {
     height: 30px;
 }
 
-input[type=time] {
+input[type=time], input[type=date] {
     border: 1px solid var(--color-main);
     border-radius: 5px;
     text-align: center;
@@ -122,4 +122,23 @@ input[type=time] {
 
 button#btn-media {
     display: none;
+}
+
+input.res-data {
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    font-weight: bolder;
+    font-size: 1.25em;
+}
+
+div.res-data {
+    display: none;
+    grid-column: span 2;
+    text-align: center;
+    border: 1px solid var(--color-main);
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 5px 0px;
+    flex-direction: column;
 }

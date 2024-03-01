@@ -42,7 +42,10 @@ function calcular() {
     resultado.style.fontWeight = "bolder"
     resultado.style.fontSize = "1.5em"
 
-    btnMedia.style.display = "grid"
+    list.push(resMin)
+    if (list.length >= 2) {
+        btnMedia.style.display = "grid"
+    }
 
     console.log(`resultado: ${hora.toString().padStart(2, "0")}:${min.toString().padStart(2, "0")}`)
 
@@ -53,11 +56,30 @@ function calcular() {
         resulMedia.style.fontSize = "1.5em"
         spanMedia.innerHTML = "MÉDIA"
 
-        list.push(resMin)
         media = list.reduce((a, b) => a + b, 0) / list.length
         let horaMedia = Math.floor(media)
         let minMedia = Math.floor((media - horaMedia) * 60)
         resulMedia.innerHTML = `${horaMedia.toString().padStart(2, "0")}:${minMedia.toString().padStart(2, "0")}`
         console.log(`Média: ${horaMedia}:${minMedia}`)
     })
+}
+
+function calcData() {
+    let dataInicial = new Date(document.querySelector("input#data-start").value)
+    let dataFinal = new Date(document.querySelector("input#data-final").value)
+    let resultado = document.querySelector("input#res-dias")
+    let div = document.querySelector("div.res-data")
+    let resultMes = document.querySelector("input#res-mes")
+
+    let difMs = dataFinal.getTime() - dataInicial.getTime();
+    let difDia = difMs / (1000 * 60 * 60 * 24)
+    let difMes = Math.floor(difDia / 30)
+    let difMesDia = difDia % 30
+
+    div.style.display = "flex"
+    resultado.value = `${difDia} dias`
+    resultMes.value = `${difMes} meses e ${difMesDia} dias`
+
+    console.log(`Diferença: ${difDia} dias`)
+    console.log(`${difMes} meses e ${difMesDia} dias`)
 }

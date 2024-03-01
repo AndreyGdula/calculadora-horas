@@ -25,6 +25,20 @@
             </button>
         </section>
         <hr>
+        <section id="s2">
+            <label for="data-start">Data Inicial:</label>
+            <input type="date" name="data-start" id="data-start">
+            <label for="data-final">Data Final:</label>
+            <input type="date" name="data-final" id="data-final">
+            <button class="button-submit" id="b2" onclick="calcData()">
+                <span class="span-button" class="submit-data">CALCULAR</span>
+            </button>
+            <div class="res-data">
+                <input type="text" class="res-data" id="res-dias" value="" disabled>
+                <hr>
+                <input type="text" class="res-data" id="res-mes" value="" disabled>
+            </div>
+        </section>
     </main>
     <footer>
         <ul>
