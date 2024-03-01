@@ -90,6 +90,10 @@ hr {
     margin: 10px 0px;
 }
 
+hr.hr-data {
+    margin: 5px 0px;
+}
+
 input {
     height: 30px;
 }
@@ -141,4 +145,5 @@ div.res-data {
     font-weight: bold;
     padding: 5px 0px;
     flex-direction: column;
+    background-color: #c4ccfd6c;
 }
