@@ -15,6 +15,8 @@ resultado.Id = "res"
 resultado.style.display = "none"
 button.appendChild(resultado)
 
+var footer = document.querySelector("footer")
+
 function calcular() {
     let start = String(document.querySelector("input#time-start").value)
     let final = String(document.querySelector("input#time-final").value)
@@ -55,6 +57,7 @@ function calcular() {
         resulMedia.style.fontWeight = "bolder"
         resulMedia.style.fontSize = "1.5em"
         spanMedia.innerHTML = "MÉDIA"
+        footer.style.marginTop = "40px"
 
         media = list.reduce((a, b) => a + b, 0) / list.length
         let horaMedia = Math.floor(media)
@@ -90,6 +93,7 @@ function calcData() {
     div.style.display = "flex"
     resultado.value = `${difDia} dias`
     resultMes.value = `${difMes} ${mesP} e ${difMesDia} ${diaP}`
+    footer.style.marginTop = "40px"
 
     console.log(`Diferença: ${difDia} dias`)
     console.log(`${difMes} ${mesP} e ${difMesDia} ${diaP}`)
