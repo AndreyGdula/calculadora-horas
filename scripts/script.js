@@ -76,10 +76,21 @@ function calcData() {
     let difMes = Math.floor(difDia / 30)
     let difMesDia = difDia % 30
 
+    if (difMes > 1) {
+        var mesP = "meses"
+    } else {
+        var mesP = "mês"
+    }
+    if (difMesDia > 1) {
+        var diaP = "dias"
+    } else {
+        var diaP = "dia"
+    }
+
     div.style.display = "flex"
     resultado.value = `${difDia} dias`
-    resultMes.value = `${difMes} meses e ${difMesDia} dias`
+    resultMes.value = `${difMes} ${mesP} e ${difMesDia} ${diaP}`
 
     console.log(`Diferença: ${difDia} dias`)
-    console.log(`${difMes} meses e ${difMesDia} dias`)
+    console.log(`${difMes} ${mesP} e ${difMesDia} ${diaP}`)
 }
