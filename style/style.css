@@ -41,6 +41,11 @@ main {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+div.space {
+    min-height: 10vh;
+    max-height: 40vh;
+}
+
 section {
     display: grid;
     grid-template-columns: repeat(2, auto);
